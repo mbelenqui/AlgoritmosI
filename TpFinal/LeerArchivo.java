@@ -7,8 +7,8 @@ import java.util.List;
 public class LeerArchivo {
 
     public static void main(String[] args) {
-        String pathFechas= "/home/tareas/Tp_algo1/fechas.csv";
-        String pathVentas= "/home/tareas/Tp_algo1/ventas.csv";
+        String pathFechas= "C:\Users\Usuario\Desktop\Tp_algo1\fechas.csv";
+        String pathVentas= "C:\Users\Usuario\Desktop\Tp_algo1\ventas.csv";
         char delimiter = ','; 
         
         try {
@@ -32,7 +32,7 @@ public class LeerArchivo {
             if (hasHeader) {
                 String headerLine = br.readLine();
                 if (headerLine == null) {
-                    throw new CSVFormatException("El archivo está vacío.");
+                    throw new CSVFormatException("El archivo esta vacio.");
                 }
             }
 
@@ -41,7 +41,7 @@ public class LeerArchivo {
             while ((line = br.readLine()) != null) {
                 String[] fields = line.split(String.valueOf(delimiter));
                 if (fields.length == 0) {
-                    throw new CSVFormatException("La línea " + lineNumber + " está vacía.");
+                    throw new CSVFormatException("La linea " + lineNumber + " esta vacia.");
                 }
                 dataList.add(fields);
                 lineNumber++;
@@ -53,7 +53,7 @@ public class LeerArchivo {
 
     public static void printData(List<String[]> data) {
         for (String[] row : data) {
-            for (int i = 1; i < row.length; i++) { // Empezar desde el índice 1 en lugar de 0
+            for (int i = 1; i < row.length; i++) { // Empezar desde el indice 1 en lugar de 0
                 System.out.print(row[i] + "\t");
             }
             System.out.println();
